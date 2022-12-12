@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //2
+    // let firstPromise = new Promise ( (resolve) => {
+    //     setTimeout( () => {
+    //         alert('this is promise')
+    //     }, 2000)
+    //     resolve()
+    // })
+    // firstPromise.then( () => {
+    //     console.log('promise resolve')
+    // })
+
+    //3
+    // let firstPromise = new Promise ( (resolve) => {
+    //     setTimeout( () => {
+    //         let randomNumber = Math.random()
+    //         // alert(randomNumber)
+    //         resolve(randomNumber)
+    //     }, 3000)
+    //
+    // })
+    // firstPromise.then( (number) => {
+    //     console.log(number)
+    // })
+
+    //4
+    // let newPromise = new Promise ( (resolve) => {
+    //         let randomNumber = Math.random()
+    //         // alert(randomNumber)
+    //         resolve(randomNumber)
+    // })
+    // newPromise.then( (number) => {
+    //     console.log('first' + number)
+    // })
+    // newPromise.then( (number) => {
+    //     console.log('scn' + number)
+    // })
+    // console.log('number')
+
+    //5
+
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    //
+    // doAfter(1).then(() => console.log('promise 1 seconds'))
+    // doAfter(3).then(() => console.log('promise 3 seconds'))
+    // doAfter(5).then(() => console.log('promise 5 seconds'))
+
+    //6
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    //
+    // let pr1 = doAfter(1)
+    // let pr3 = doAfter(3)
+    // let pr5 = doAfter(5)
+    //
+    // pr1.then( () => console.log('promise 1 seconds'))
+    // pr3.then( () => console.log('promise 3 seconds'))
+    // pr5.then( () => console.log('promise 5 seconds'))
+
+    //7
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // let promise3 = doAfter(3)
+    //
+    // promise3.then( () => console.log('promise') );
+    // promise3.then( () => console.log('promise') );
+    // promise3.then( () => console.log('promise') );
+
+    //8
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // let promise3 = doAfter(3)
+    // setTimeout( () => {
+    //     promise3.then( () => console.log('я сработал через 3 секунд') );
+    // },1000)
+    // promise3.then( () => console.log('и я тоже следом сработал через 3 секунд') );
+    // promise3.then( () => console.log('и я') );
+
+    //9 resolve 1 раз, а не каждый интервал
+    //     let promise = new Promise ( (resolve) => {
+    //         let i = 0
+    //         setInterval( () => {
+    //             i++
+    //             resolve(i)
+    //         }, 1000)
+    //     })
+    // promise.then((res) => console.log(res))
+
+    //10
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // let pr1 = doAfter(3);
+    // let pr2 = pr1.then( () => console.log('Мой промис зарезолвился') );
+    // let something = pr2.then( () => console.log('Мой промис зарезолвился следом за pr1'));
+    // console.log(pr1)
+    // console.log(pr2)
+    // console.log(something)
+
+    //11
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // doAfter(3)
+    // .then( () => console.log('Мой промис зарезолвился') )
+    // .then( () => console.log('Мой промис зарезолвился следом за pr1'))
+
+    //12
+    // let callback1 = () => console.log('Мой промис зарезолвился');
+    // let callback2 = () => console.log('Мой промис тоже зарезолвился следом');
+    //
+    // let pr1 = doAfter(3);
+    // let pr2 = pr1.then(callback1);
+    // pr2.then(callback2);
+
+    //13
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // let callback1 = () => {return 'promise'};
+    // let callback2 = (res) => console.log(res);
+    //
+    // let pr1 = doAfter(3);
+    // let pr2 = pr1.then(callback1);
+    // pr2.then(callback2);
+
+    //14
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // let callback1 = () => {
+    //     console.log('callback 1')
+    //     return 'promise'};
+    // let callback2 = (res) => console.log(res);
+    //
+    // doAfter(3)
+    //     .then(callback1)
+    //     .then(callback2)
+
+    //15
+    // let pr = new Promise( (resolve) => {
+    //     let data = {
+    //         cities: [{title: 'City'}, {title: 'and City'}],
+    //         website: 'www'
+    //     }
+    //     resolve(data)
+    // })
+    // let data = pr.then(data => {
+    //     console.log(data)
+    //     return data.website
+    // })
+    //     let website = data.then(website => console.log(website))
+
+
+</script>
+
+<script src="axios.js">
+    //16
+</script>
+<script src="api.js">
+    //16
+</script>
+<script>
+    //16
+    // api.sendStudentsCountToItKamasutra(20)
+    //     .then(res => {
+    //         console.log(res.data);
+    //     })
+    // .finally(res => {
+    //     console.log(res.data.message)
+    // })
+
+    //18
+    // let getRandomAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // // getRandomAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))
+    //
+    // let promises = [getRandomAfter(1),getRandomAfter(2), getRandomAfter(3)];
+    // let commonPromise = Promise.all(promises);
+    // commonPromise.then(values => {
+    //     // как вывести здесь все 3 числа?? гуглим Promise.all
+    //     console.log(values)
+    // } )
+
+    //19
+    // api.getVacanciesCountFromMicrosoft()
+    //     .then(data => {
+    //         console.log(data);
+    //         return data.vacancies
+    //     });
+    //
+    // api.getVacanciesCountFromGoogle()
+    //     .then(data => {
+    //         console.log(data);
+    //         return data.vacancies
+    //     });
+    //
+    // api.sendStudentsCountToItKamasutra(api.getVacanciesCountFromMicrosoft() + api.getVacanciesCountFromGoogle())
+    //     .then(data => {
+    //         console.log(data);
+    //     });
+
+    //21
+    // let doAfter = (seconds) => {
+    //     return new Promise ( (resolve) => {
+    //         setTimeout( () => {
+    //             resolve()
+    //         }, seconds * 1000)
+    //     })
+    // }
+    // async function doAfter (seconds) {
+    let doAfter = async (seconds) => {
+        let promise = new Promise ( (resolve) => {
+            setTimeout( () => {
+                resolve()
+            }, seconds * 1000)
+        })
+        let result = await promise
+    }
+    doAfter(3)
+    .then( () => console.log('Мой промис зарезолвился') )
+    .then( () => console.log('Мой промис зарезолвился следом за pr1'))
+
+
+</script>
+
+</body>
+</html>
