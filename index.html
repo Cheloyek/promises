@@ -232,22 +232,34 @@
     // } )
 
     //19
+
+    let msPromise = api.getVacanciesCountFromMicrosoft()
+    let gPromise = api.getVacanciesCountFromGoogle()
+    const allPromise = Promise.all([msPromise, gPromise])
+    allPromise.then((res) => {
+        let resFromMS = res[0].data.vacancies
+        let resFromG = res[1].data.vacancies
+        api.sendStudentsCountToItKamasutra(resFromMS + resFromG)
+            .then(res => {
+                console.log(res.data);
+            });
+    })
+
+
+
     // api.getVacanciesCountFromMicrosoft()
-    //     .then(data => {
-    //         console.log(data);
-    //         return data.vacancies
+    //     .then(res => {
+    //         console.log(res.data);
+    //         return res.data.vacancies
     //     });
     //
     // api.getVacanciesCountFromGoogle()
-    //     .then(data => {
-    //         console.log(data);
-    //         return data.vacancies
+    //     .then(res => {
+    //         console.log(res.data);
+    //         return res.data.vacancies
     //     });
-    //
-    // api.sendStudentsCountToItKamasutra(api.getVacanciesCountFromMicrosoft() + api.getVacanciesCountFromGoogle())
-    //     .then(data => {
-    //         console.log(data);
-    //     });
+
+
 
     //21
     // let doAfter = (seconds) => {
@@ -269,7 +281,6 @@
     doAfter(3)
     .then( () => console.log('Мой промис зарезолвился') )
     .then( () => console.log('Мой промис зарезолвился следом за pr1'))
-
 
 </script>
 
