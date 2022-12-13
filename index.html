@@ -237,11 +237,13 @@
     let gPromise = api.getVacanciesCountFromGoogle()
     const allPromise = Promise.all([msPromise, gPromise])
     allPromise.then((res) => {
-        let resFromMS = res[0].data.vacancies
-        let resFromG = res[1].data.vacancies
+        let resFromMS = res[0]
+        let resFromG = res[1]
         api.sendStudentsCountToItKamasutra(resFromMS + resFromG)
-            .then(res => {
-                console.log(res.data);
+            .then(count => {
+                console.log(count);
+                console.log(resFromMS);
+                console.log(resFromG);
             });
     })
 

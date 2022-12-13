@@ -4,9 +4,13 @@ const api = {
         { count: studentsCount });
     },
     getVacanciesCountFromMicrosoft() {
-        return axios.get("https://microsoft.com");
+        let pr1 = axios.get("https://microsoft.com")
+        let pr2 = pr1.then(res => res.data.vacancies)
+        return pr2
     },
     getVacanciesCountFromGoogle() {
-        return axios.get("https://google.com");
+        return axios
+            .get("https://google.com")
+            .then(res => res.data.vacancies)
     }
 }
